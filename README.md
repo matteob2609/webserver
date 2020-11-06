@@ -24,9 +24,9 @@ Brief documentation with the commands to enter in the command line to initialize
           
             nameservers:
           
-                search: [domain_name]
+                search: [mydomain, other domain]
               
-                addresses: [x.x.x.x]
+                addresses: [x.x.x.x, x.x.x.x]
               
          version: 2
 
