@@ -3,7 +3,7 @@ Brief documentation with the commands to enter in the command line to initialize
 
 (Use 'sudo' if necessary before the command)
 
-- apt update & sudo apt upgrade //update packages
+- apt update & apt upgrade //update packages
 
 - apt install openssh-server //install the SSH server
 
@@ -30,7 +30,7 @@ Brief documentation with the commands to enter in the command line to initialize
               
          version: 2
 
-- netplan try or sudo netplan apply //apply the changes on the previous file
+- netplan try or netplan apply //apply the changes on the previous file
 
 - apt install apache2 //install the Apache2 server
 
