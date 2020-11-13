@@ -57,3 +57,5 @@ Breve documentazione per inizializzare un server web Ubuntu.
 - Togliere il commento nella riga ServerName e inserire il dominio del sito; In DocumentRoot inserire il percorso della cartella del sito; In ErrorLog e CustomLog, all'interno delle parentesi graffe inserire il percorso della cartella del sito/log
 
 - a2ensite 'file_configurazione_sito'.conf E DOPO systemctl restart apache2.service //Abilito il sito e riavvio il server Apache
+
+- useradd -s /bin/bash -d /var/www/'nome_cartella_sito' -m 'nome_user' E DOPO passwd 'password' //Aggiunge un utente su quel sito specifico con password
