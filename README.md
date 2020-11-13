@@ -34,9 +34,15 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 - netplan try OPPURE netplan apply //Applica i cambiamenti effettuati nel file di configurazione
 
+Checkpoint --> verificare se l'indirizzo è stato modificato correttamente tramite il comando ip addr e verificare la connessione con il comando ping.
+
 - apt install apache2 //Installa il server Apache2
 
+Checkpoint --> verificare l'installazione del server Apache aprendo il browser e mettendo nella barra degli indirizzi l'IP del server web, se viene visualizzata la pagina di default di Apache l'installazione è andata a buon fine.
+
 - nano /etc/hosts E DOPO nano /etc/hostname //File da modificare se si vuole cambiare il nome del server e dell'hostname
+
+Checkpoint --> immettere il comando reboot per riavviare il server web e visualizzare l'hostname aggiornato.
 
 ### AGGIUNGERE UN SITO SPECIFICO AL SERVER WEB
 
@@ -59,3 +65,5 @@ Breve documentazione per inizializzare un server web Ubuntu.
 - a2ensite 'file_configurazione_sito'.conf E DOPO systemctl restart apache2.service //Abilito il sito e riavvio il server Apache
 
 - useradd -s /bin/bash -d /var/www/'nome_cartella_sito' -m 'nome_user' E DOPO passwd 'password' //Aggiunge un utente su quel sito specifico con password
+
+Checkpoint --> immettere nella barra degli indirizzi del browser IP/nome_cartella_sito, se vengono visualizzati i file inseriti dall'utente registrato il sito funziona correttamente.
