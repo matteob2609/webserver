@@ -3,7 +3,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 (Usare 'sudo' prima del comando se non si hanno i diritti necessari)
 
-//CONFIGURAZIONE DEL SERVER WEB
+### CONFIGURAZIONE DEL SERVER WEB
 
 - apt update E DOPO apt upgrade //Aggiorna i pacchetti
 
@@ -38,7 +38,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 - nano /etc/hosts E DOPO nano /etc/hostname //File da modificare se si vuole cambiare il nome del server e dell'hostname
 
-//AGGIUNGERE UN SITO SPECIFICO AL SERVER WEB
+### AGGIUNGERE UN SITO SPECIFICO AL SERVER WEB
 
 - cd /var/www //Mi sposto all'interno della cartella www
 
