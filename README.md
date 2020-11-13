@@ -1,13 +1,15 @@
 # VM---webserver-documentation
-Brief documentation with the commands to enter in the command line to initialize a web server.
+Breve documentazione per inizializzare un server web Ubuntu.
 
-(Use 'sudo' if necessary before the command)
+(Usare 'sudo' prima del comando se non si hanno i diritti necessari)
 
-- apt update & apt upgrade //update packages
+//CONFIGURAZIONE DEL SERVER WEB
 
-- apt install openssh-server //install the SSH server
+- apt update E DOPO apt upgrade //Aggiorna i pacchetti
 
-- nano /etc/netplan/00-installer-config.yaml //modify the configuration file
+- apt install openssh-server //Installa il server SSH
+
+- nano /etc/netplan/00-installer-config.yaml //Modifica il file di configurazione. Da modificare in base alla propria rete
 
 
       network:
@@ -30,8 +32,28 @@ Brief documentation with the commands to enter in the command line to initialize
               
          version: 2
 
-- netplan try or netplan apply //apply the changes on the previous file
+- netplan try OPPURE netplan apply //Applica i cambiamenti effettuati nel file di configurazione
 
-- apt install apache2 //install the Apache2 server
+- apt install apache2 //Installa il server Apache2
 
-- nano /etc/hosts & nano /etc/hostname //modify the name of the server and the hostname
+- nano /etc/hosts E DOPO nano /etc/hostname //File da modificare se si vuole cambiare il nome del server e dell'hostname
+
+//AGGIUNGERE UN SITO SPECIFICO AL SERVER WEB
+
+- cd /var/www //Mi sposto all'interno della cartella www
+
+- mkdir 'nome_cartella' //Sarà la cartella che contiene i file del sito
+
+- cd 'nome_cartella_appena_creata' //Sempre da www mi sposto all'interno della cartella del sito appena creata per fare una cartella di log
+
+- mkdir log //Creo la cartella di log, i file di log vengono creati in automatico
+
+- cd /etc/apache2/sites-available //Entro all'interno della cartella dei siti disponibili di Apache2
+
+- cp 000-default.conf 'nome_cartella_precedente'.conf //Crea un nuovo file facendolo uguale al contenuto che c'è in 000-default.conf
+
+- nano 'nome_cartella_precedente'.conf //Modifico il file di configurazione del sito
+
+- Togliere il commento nella riga ServerName e inserire il dominio del sito; In DocumentRoot inserire il percorso della cartella del sito; In ErrorLog e CustomLog, all'interno delle parentesi graffe inserire il percorso della cartella del sito/log
+
+- a2ensite 'file_configurazione_sito'.conf E DOPO systemctl restart apache2.service //Abilito il sito e riavvio il server Apache
