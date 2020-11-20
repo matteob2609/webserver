@@ -5,21 +5,21 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ### 1. CONFIGURAZIONE DEL SERVER WEB
 
-- apt update 
+- _apt update_
 
-- apt upgrade
+- _apt upgrade_
 
-- nano /etc/hosts 
+- _nano /etc/hosts_ 
 
-- nano /etc/hostname
+- _nano /etc/hostname_
 
-Checkpoint --> immettere il comando reboot per riavviare il server web e visualizzare l'hostname aggiornato.
+`Checkpoint --> immettere il comando reboot per riavviare il server web e visualizzare l'hostname aggiornato.`
 
       reboot
 
-- apt install openssh-server
+- _apt install openssh-server_
 
-- nano /etc/netplan/00-installer-config.yaml
+- _nano /etc/netplan/00-installer-config.yaml_
 
       network:
         renderer: networkd
@@ -31,58 +31,58 @@ Checkpoint --> immettere il comando reboot per riavviare il server web e visuali
                 addresses: [172.16.1.10, 1.1.1.1]
          version: 2
 
-- netplan try
+- _netplan try_
 
-Checkpoint --> verificare se l'indirizzo è stato modificato correttamente tramite il comando ip addr e verificare la connessione con il comando ping.
+`Checkpoint --> verificare se l'indirizzo è stato modificato correttamente tramite il comando ip addr e verificare la connessione con il comando ping.`
 
       ip addr
       ping
 
-- apt install apache2
+- _apt install apache2_
 
-Checkpoint --> verificare l'installazione del server Apache aprendo il browser e mettendo nella barra degli indirizzi l'IP del server web, se viene visualizzata la pagina di default di Apache l'installazione è andata a buon fine.
+`Checkpoint --> verificare l'installazione del server Apache aprendo il browser e mettendo nella barra degli indirizzi l'IP del server web, se viene visualizzata la pagina di default di Apache l'installazione è andata a buon fine.`
 
 ---
 
 ### 2. CREARE UN NUOVO UTENTE PER IL SITO
 
-- useradd -s /bin/bash -d /var/www/'nome_cartella_sito' -m 'nome_user'
+- _useradd -s /bin/bash -d /var/www/'nome_cartella_sito' -m 'nome_user'_
 
-- passwd 'password'
+- _passwd 'password'_
 
 ---
 
 ### 3. AGGIUNGERE UN SITO WEB
 
-- cd /var/www/'nome_cartella_sito'
+- _cd /var/www/'nome_cartella_sito'_
 
-- mkdir log
+- _mkdir log_
 
-- cd /etc/apache2/sites-available
+- _cd /etc/apache2/sites-available_
 
-- cp 000-default.conf 'nome_cartella_sito'.conf
+- _cp 000-default.conf 'nome_cartella_sito'.conf_
 
-- nano 'nome_cartella_sito'.conf
+- _nano 'nome_cartella_sito'.conf_
 
-- Togliere il commento nella riga ServerName e inserire il dominio del sito; In DocumentRoot inserire il percorso della cartella del sito; In ErrorLog e CustomLog togliere il $, le parentesi graffe e inserire il percorso della cartella del sito /log.
+`Togliere il commento nella riga ServerName e inserire il dominio del sito; In DocumentRoot inserire il percorso della cartella del sito; In ErrorLog e CustomLog togliere il $, le parentesi graffe e inserire il percorso della cartella del sito /log.`
 
 ---
 
 ### 4. ABILITARE IL SITO
 
-- a2ensite 'file_configurazione_sito'.conf
+- _a2ensite 'file_configurazione_sito'.conf_
 
-- systemctl restart apache2.service
+- _systemctl restart apache2.service_
 
-Checkpoint --> immettere nella barra degli indirizzi del browser IP/nome_cartella_sito, se vengono visualizzati i file inseriti dall'utente registrato il sito funziona correttamente.
+`Checkpoint --> immettere nella barra degli indirizzi del browser IP/nome_cartella_sito, se vengono visualizzati i file inseriti dall'utente registrato il sito funziona correttamente.`
 
 ---
 
 ### 5. ATTIVARE IL SERVIZIO FTP
 
-- apt install vsftpd
+- _apt install vsftpd_
 
-- nano /etc/vsftpd.conf
+- _nano /etc/vsftpd.conf_
 
       listen=yes
 
