@@ -25,10 +25,10 @@ Checkpoint --> immettere il comando reboot per riavviare il server web e visuali
         renderer: networkd
         ethernets:
           enp0s3:
-            addresses: [172.16.29.100+x/16]
+            addresses: [172.16.29.105/16]
             gateway4: 172.16.1.7
             nameservers:
-                addresses: [172.16.1.10, x.x.x.x]
+                addresses: [172.16.1.10, 1.1.1.1]
          version: 2
 
 - netplan try
@@ -42,11 +42,15 @@ Checkpoint --> verificare se l'indirizzo è stato modificato correttamente trami
 
 Checkpoint --> verificare l'installazione del server Apache aprendo il browser e mettendo nella barra degli indirizzi l'IP del server web, se viene visualizzata la pagina di default di Apache l'installazione è andata a buon fine.
 
+---
+
 ### 2. CREARE UN NUOVO UTENTE PER IL SITO
 
 - useradd -s /bin/bash -d /var/www/'nome_cartella_sito' -m 'nome_user'
 
 - passwd 'password'
+
+---
 
 ### 3. AGGIUNGERE UN SITO WEB
 
@@ -62,6 +66,8 @@ Checkpoint --> verificare l'installazione del server Apache aprendo il browser e
 
 - Togliere il commento nella riga ServerName e inserire il dominio del sito; In DocumentRoot inserire il percorso della cartella del sito; In ErrorLog e CustomLog togliere il $, le parentesi graffe e inserire il percorso della cartella del sito /log.
 
+---
+
 ### 4. ABILITARE IL SITO
 
 - a2ensite 'file_configurazione_sito'.conf
@@ -69,6 +75,8 @@ Checkpoint --> verificare l'installazione del server Apache aprendo il browser e
 - systemctl restart apache2.service
 
 Checkpoint --> immettere nella barra degli indirizzi del browser IP/nome_cartella_sito, se vengono visualizzati i file inseriti dall'utente registrato il sito funziona correttamente.
+
+---
 
 ### 5. ATTIVARE IL SERVIZIO FTP
 
