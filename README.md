@@ -3,7 +3,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 (Usare 'sudo' prima del comando se non si hanno i diritti necessari)
 
-### CONFIGURAZIONE DEL SERVER WEB
+### 1. CONFIGURAZIONE DEL SERVER WEB
 
 - apt update 
 
