@@ -5,65 +5,126 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ### CONFIGURAZIONE DEL SERVER WEB
 
-- apt update E DOPO apt upgrade //Aggiorna i pacchetti
+- apt update 
 
-- apt install openssh-server //Installa il server SSH
+- apt upgrade
 
-- nano /etc/netplan/00-installer-config.yaml //Modifica il file di configurazione. Da modificare in base alla propria rete
+- nano /etc/hosts 
+
+- nano /etc/hostname
+
+Checkpoint --> immettere il comando reboot per riavviare il server web e visualizzare l'hostname aggiornato.
+
+- apt install openssh-server
+
+- nano /etc/netplan/00-installer-config.yaml
 
 
       network:
-    
-        renderer: networkd
       
+        renderer: networkd
+        
         ethernets:
       
           enp0s3:
         
-            addresses: [x.x.x.x/x]
+            addresses: [172.16.29.100+x/16]
           
-            gateway4: x.x.x.x
+            gateway4: 172.16.1.7
           
             nameservers:
-          
-                search: [mydomain, other domain]
               
-                addresses: [x.x.x.x, x.x.x.x]
+                addresses: [172.16.1.10, x.x.x.x]
               
          version: 2
 
-- netplan try OPPURE netplan apply //Applica i cambiamenti effettuati nel file di configurazione
+- netplan try
 
 Checkpoint --> verificare se l'indirizzo è stato modificato correttamente tramite il comando ip addr e verificare la connessione con il comando ping.
 
-- apt install apache2 //Installa il server Apache2
+- apt install apache2
 
 Checkpoint --> verificare l'installazione del server Apache aprendo il browser e mettendo nella barra degli indirizzi l'IP del server web, se viene visualizzata la pagina di default di Apache l'installazione è andata a buon fine.
 
-- nano /etc/hosts E DOPO nano /etc/hostname //File da modificare se si vuole cambiare il nome del server e dell'hostname
+### 2. CREARE UN NUOVO UTENTE PER IL SITO
 
-Checkpoint --> immettere il comando reboot per riavviare il server web e visualizzare l'hostname aggiornato.
+- useradd -s /bin/bash -d /var/www/'nome_cartella_sito' -m 'nome_user'
 
-### AGGIUNGERE UN SITO SPECIFICO AL SERVER WEB
+- passwd 'password'
 
-- cd /var/www //Mi sposto all'interno della cartella www
+### 3. AGGIUNGERE UN SITO WEB
 
-- mkdir 'nome_cartella' //Sarà la cartella che contiene i file del sito
+- cd /var/www/'nome_cartella_sito'
 
-- cd 'nome_cartella_appena_creata' //Sempre da www mi sposto all'interno della cartella del sito appena creata per fare una cartella di log
+- mkdir log
 
-- mkdir log //Creo la cartella di log, i file di log vengono creati in automatico
+- cd /etc/apache2/sites-available
 
-- cd /etc/apache2/sites-available //Entro all'interno della cartella dei siti disponibili di Apache2
+- cp 000-default.conf 'nome_cartella_sito'.conf
 
-- cp 000-default.conf 'nome_cartella_precedente'.conf //Crea un nuovo file facendolo uguale al contenuto che c'è in 000-default.conf
+- nano 'nome_cartella_sito'.conf
 
-- nano 'nome_cartella_precedente'.conf //Modifico il file di configurazione del sito
+- Togliere il commento nella riga ServerName e inserire il dominio del sito; In DocumentRoot inserire il percorso della cartella del sito; In ErrorLog e CustomLog togliere il $, le parentesi graffe e inserire il percorso della cartella del sito /log.
 
-- Togliere il commento nella riga ServerName e inserire il dominio del sito; In DocumentRoot inserire il percorso della cartella del sito; In ErrorLog e CustomLog, all'interno delle parentesi graffe inserire il percorso della cartella del sito/log
+### 4. ABILITARE IL SITO
 
-- a2ensite 'file_configurazione_sito'.conf E DOPO systemctl restart apache2.service //Abilito il sito e riavvio il server Apache
+- a2ensite 'file_configurazione_sito'.conf
 
-- useradd -s /bin/bash -d /var/www/'nome_cartella_sito' -m 'nome_user' E DOPO passwd 'password' //Aggiunge un utente su quel sito specifico con password
+- systemctl restart apache2.service
 
 Checkpoint --> immettere nella barra degli indirizzi del browser IP/nome_cartella_sito, se vengono visualizzati i file inseriti dall'utente registrato il sito funziona correttamente.
+
+### 5. ATTIVARE IL SERVIZIO FTP
+
+- apt install vsftpd
+
+- nano /etc/vsftpd.conf
+
+      listen=yes
+
+      listen_ipv6=NO
+
+      anonymous_enable=NO
+
+      local_enable=YES
+
+      write_enable=YES
+
+      local_umask=022
+
+      dirmessage_enable=YES
+
+      use_localtime=YES
+
+      xferlog_enable=YES
+
+      connect_from_port_20=YES
+
+      xferlog_file=/var/log/vsftpd.log
+
+      xferlog_std_format=YES
+
+      ftpd_banner=Welcome to our  FTP service.
+
+      chroot_local_user=YES
+
+      local_root=/var/www/$USER
+
+      user_sub_token=$USER
+
+      allow_writeable_chroot=YES
+
+      secure_chroot_dir=/var/run/vsftpd/empty
+
+      pam_service_name=vsftpd
+
+      rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+
+      rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+
+      ssl_enable=NO
+
+      session_support=YES
+
+      log_ftp_protocol=YES
+
