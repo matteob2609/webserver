@@ -15,32 +15,28 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 Checkpoint --> immettere il comando reboot per riavviare il server web e visualizzare l'hostname aggiornato.
 
+      reboot
+
 - apt install openssh-server
 
 - nano /etc/netplan/00-installer-config.yaml
 
-
       network:
-      
         renderer: networkd
-        
         ethernets:
-      
           enp0s3:
-        
             addresses: [172.16.29.100+x/16]
-          
             gateway4: 172.16.1.7
-          
             nameservers:
-              
                 addresses: [172.16.1.10, x.x.x.x]
-              
          version: 2
 
 - netplan try
 
 Checkpoint --> verificare se l'indirizzo è stato modificato correttamente tramite il comando ip addr e verificare la connessione con il comando ping.
+
+      ip addr
+      ping
 
 - apt install apache2
 
