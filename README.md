@@ -3,7 +3,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 (Usare 'sudo' prima del comando se non si hanno i diritti necessari)
 
-### 1. CONFIGURAZIONE IP / INSTALLAZIONE SSH E APACHE2
+### 1. CONFIGURAZIONE IP & INSTALLAZIONE SSH / APACHE2
 
 - _apt update_
 
