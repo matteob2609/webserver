@@ -3,7 +3,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 (Usare 'sudo' prima del comando se non si hanno i diritti necessari)
 
-### 1. CONFIGURAZIONE DEL SERVER WEB
+### 1. CONFIGURAZIONE IP / INSTALLAZIONE SSH E APACHE2
 
 - _apt update_
 
@@ -41,6 +41,8 @@ Breve documentazione per inizializzare un server web Ubuntu.
 - _apt install apache2_
 
 `Checkpoint --> verificare l'installazione del server Apache aprendo il browser e mettendo nella barra degli indirizzi l'IP del server web, se viene visualizzata la pagina di default di Apache l'installazione è andata a buon fine.`
+
+      172.16.29.105/index.html
 
 ---
 
@@ -132,3 +134,6 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
       log_ftp_protocol=YES
 
+- _systemctl start vsftpd_
+
+- _systemctl enable vsftpd_
