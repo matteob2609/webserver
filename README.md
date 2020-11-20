@@ -46,7 +46,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ---
 
-### 2. CREARE UN NUOVO UTENTE PER IL SITO
+### 2. CREAZIONE DI UN UTENTE PER UN SITO SPECIFICO
 
 - _useradd -s /bin/bash -d /var/www/'nome_cartella_sito' -m 'nome_user'_
 
@@ -54,7 +54,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ---
 
-### 3. AGGIUNGERE UN SITO WEB
+### 3. AGGIUNTA DEL SITO WEB
 
 - _cd /var/www/'nome_cartella_sito'_
 
@@ -70,7 +70,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ---
 
-### 4. ABILITARE IL SITO
+### 4. ABILITAZIONE DEL SITO
 
 - _a2ensite 'file_configurazione_sito'.conf_
 
@@ -80,7 +80,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ---
 
-### 5. ATTIVARE IL SERVIZIO FTP
+### 5. ATTIVAZIONE DEL SERVIZIO FTP
 
 - _apt install vsftpd_
 
