@@ -78,6 +78,8 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 `Checkpoint --> immettere nella barra degli indirizzi del browser IP/nome_cartella_sito, se vengono visualizzati i file inseriti dall'utente registrato il sito funziona correttamente.`
 
+      172.16.29.105/'nome_cartella_sito'
+
 ---
 
 ### 5. ATTIVAZIONE DEL SERVIZIO FTP
