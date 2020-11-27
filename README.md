@@ -5,7 +5,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ---
 
-### :ghost:CONFIGURAZIONE IP & INSTALLAZIONE SSH / APACHE2
+### :ghost: CONFIGURAZIONE IP & INSTALLAZIONE SSH / APACHE2
 
 - _apt update_
 
@@ -48,7 +48,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ---
 
-:ghost:### CREAZIONE DI UN UTENTE PER UN SITO SPECIFICO
+### :ghost: CREAZIONE DI UN UTENTE PER UN SITO SPECIFICO
 
 - _useradd -s /bin/bash -d /var/www/'nome_cartella_sito' -m 'nome_user'_
 
@@ -58,7 +58,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ---
 
-### 3. AGGIUNTA DEL SITO WEB
+### :ghost: AGGIUNTA DEL SITO WEB
 
 - _cd /var/www/'nome_cartella_sito'_
 
@@ -74,7 +74,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ---
 
-### 4. ABILITAZIONE DEL SITO
+### :ghost: ABILITAZIONE DEL SITO
 
 - _a2ensite 'file_configurazione_sito'.conf_
 
@@ -86,7 +86,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ---
 
-### 5. ATTIVAZIONE DEL SERVIZIO FTP
+### :ghost: ATTIVAZIONE DEL SERVIZIO FTP
 
 - _apt install vsftpd_
 
