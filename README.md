@@ -29,7 +29,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 `Versione con DHCP`
 
-      network:
+        network:
         version: 2
         renderer: networkd
         ethernets:
