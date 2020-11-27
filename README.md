@@ -1,5 +1,5 @@
 # webserver
-Breve documentazione per inizializzare un server web Ubuntu.
+Breve documentazione per inizializzare un server web Ubuntu (versione in questione: 20.04.1 LTS)
 
 :heavy_exclamation_mark: Usare **sudo** prima del comando se non si hanno i diritti necessari.
 
