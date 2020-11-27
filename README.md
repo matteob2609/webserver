@@ -42,7 +42,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ---
 
-### :ghost: INSTALLAZIONE SSH E APACHE2
+### :ghost: INSTALLAZIONE SSH & APACHE2
 
 - _apt install openssh-server_
 
