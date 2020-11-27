@@ -15,7 +15,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 - _nano /etc/hostname_
 
-:heavy_check_mark:`Checkpoint: immettere il comando reboot per riavviare il server web e visualizzare l'hostname aggiornato.`
+:pushpin:`Checkpoint: immettere il comando reboot per riavviare il server web e visualizzare l'hostname aggiornato.`
 
       reboot
 
@@ -35,14 +35,14 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 - _netplan try_
 
-:heavy_check_mark:`Checkpoint: verificare se l'indirizzo è stato modificato correttamente tramite il comando ip addr e verificare la connessione con il comando ping.`
+:pushpin:`Checkpoint: verificare se l'indirizzo è stato modificato correttamente tramite il comando ip addr e verificare la connessione con il comando ping.`
 
       ip addr
       ping
 
 - _apt install apache2_
 
-:heavy_check_mark:`Checkpoint: verificare l'installazione del server Apache aprendo il browser e mettendo nella barra degli indirizzi l'IP del server web, se viene visualizzata la pagina di default di Apache l'installazione è andata a buon fine.`
+:pushpin:`Checkpoint: verificare l'installazione del server Apache aprendo il browser e mettendo nella barra degli indirizzi l'IP del server web, se viene visualizzata la pagina di default di Apache l'installazione è andata a buon fine.`
 
       172.16.29.105/index.html
 
@@ -54,7 +54,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 - _passwd 'password'_
 
-:heavy_check_mark:`Checkpoint: fare il login da remoto per verificare la corretta aggiunta dell'utente.`
+:pushpin:`Checkpoint: fare il login da remoto per verificare la corretta aggiunta dell'utente.`
 
 ---
 
@@ -80,7 +80,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 - _systemctl restart apache2.service_
 
-:heavy_check_mark:`Checkpoint: immettere nella barra degli indirizzi del browser IP/nome_cartella_sito, se vengono visualizzati i file inseriti dall'utente registrato il sito funziona correttamente.`
+:pushpin:`Checkpoint: immettere nella barra degli indirizzi del browser IP/nome_cartella_sito, se vengono visualizzati i file inseriti dall'utente registrato il sito funziona correttamente.`
 
       172.16.29.105/'nome_cartella_sito'
 
