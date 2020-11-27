@@ -15,7 +15,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 - _nano /etc/hostname_
 
-`:heavy_check_mark: Checkpoint --> immettere il comando reboot per riavviare il server web e visualizzare l'hostname aggiornato.`
+:heavy_check_mark:`Checkpoint --> immettere il comando reboot per riavviare il server web e visualizzare l'hostname aggiornato.`
 
       reboot
 
