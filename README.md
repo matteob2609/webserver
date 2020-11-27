@@ -5,7 +5,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ---
 
-### 1. CONFIGURAZIONE IP & INSTALLAZIONE SSH / APACHE2
+:ghost:### CONFIGURAZIONE IP & INSTALLAZIONE SSH / APACHE2
 
 - _apt update_
 
@@ -48,7 +48,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ---
 
-### 2. CREAZIONE DI UN UTENTE PER UN SITO SPECIFICO
+:ghost:### CREAZIONE DI UN UTENTE PER UN SITO SPECIFICO
 
 - _useradd -s /bin/bash -d /var/www/'nome_cartella_sito' -m 'nome_user'_
 
