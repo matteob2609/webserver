@@ -27,7 +27,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
                 addresses: [172.16.1.10, 1.1.1.1]
          version: 2
 
-`Questa configurazione IP è stata fatta all'interno della scuola e riguarda il mio caso in particolare. Se necessario impostare la scheda di rete in modalità **Bridge**.`
+`Questa configurazione IP è stata fatta all'interno della scuola e riguarda il mio caso in particolare. Se il server è virtualizzato occorre modificare la scheda di rete in modalità Bridge.`
 
 - _netplan try_
 
