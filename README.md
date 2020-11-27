@@ -5,7 +5,7 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ---
 
-:ghost:### CONFIGURAZIONE IP & INSTALLAZIONE SSH / APACHE2
+### :ghost:CONFIGURAZIONE IP & INSTALLAZIONE SSH / APACHE2
 
 - _apt update_
 
