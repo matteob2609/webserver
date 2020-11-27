@@ -52,6 +52,8 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 - _passwd 'password'_
 
+`Checkpoint --> fare il login da remoto per verificare la corretta aggiunta dell'utente`
+
 ---
 
 ### 3. AGGIUNTA DEL SITO WEB
