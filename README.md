@@ -7,19 +7,13 @@ Breve documentazione per inizializzare un server web Ubuntu.
 
 ### :ghost: CONFIGURAZIONE IP & INSTALLAZIONE SSH / APACHE2
 
-- _apt update_
-
-- _apt upgrade_
-
 - _nano /etc/hosts_ 
 
 - _nano /etc/hostname_
 
-:pushpin:`Checkpoint: immettere il comando reboot per riavviare il server web e visualizzare l'hostname aggiornato.`
+:pushpin:`Checkpoint: immettere il comando reboot per riavviare il server web e visualizzare l'hostname aggiornato. `
 
       reboot
-
-- _apt install openssh-server_
 
 - _nano /etc/netplan/00-installer-config.yaml_
 
@@ -33,12 +27,20 @@ Breve documentazione per inizializzare un server web Ubuntu.
                 addresses: [172.16.1.10, 1.1.1.1]
          version: 2
 
+`Questa configurazione IP è stata fatta all'interno della scuola e riguarda il mio caso in particolare. Se necessario impostare la scheda di rete in modalità **Bridge**.`
+
 - _netplan try_
 
 :pushpin:`Checkpoint: verificare se l'indirizzo è stato modificato correttamente tramite il comando ip addr e verificare la connessione con il comando ping.`
 
       ip addr
-      ping
+      ping www.google.com
+
+- _apt update_
+
+- _apt upgrade_
+
+- _apt install openssh-server_
 
 - _apt install apache2_
 
