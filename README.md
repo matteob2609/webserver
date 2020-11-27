@@ -27,6 +27,16 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
                 addresses: [172.16.1.10, 1.1.1.1]
          version: 2
 
+`Versione con DHCP`
+
+      network:
+        version: 2
+        renderer: networkd
+        ethernets:
+          enp0s3:
+            dhcp4: true
+            dhcp6: true
+
 `Questa configurazione IP è stata fatta all'interno della scuola e riguarda il mio caso in particolare. Se il server è virtualizzato occorre impostare la scheda di rete in modalità Bridge.`
 
 - _netplan try_
@@ -88,7 +98,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 :pushpin:`Checkpoint: immettere nella barra degli indirizzi del browser IP/nome_cartella_sito, se vengono visualizzati i file inseriti dall'utente registrato il sito funziona correttamente.`
 
-      172.16.29.105/'nome_cartella_sito'
+      dominio/'nome_cartella_sito'
 
 ---
 
