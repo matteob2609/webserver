@@ -17,6 +17,8 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 - _nano /etc/netplan/00-installer-config.yaml_
 
+`Versione senza DHCP, indirizzi statici`
+
       network:
         renderer: networkd
         ethernets:
@@ -27,7 +29,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
                 addresses: [172.16.1.10, 1.1.1.1]
          version: 2
 
-`Versione con DHCP`
+`Versione con DHCP, indirizzi dinamici`
 
         network:
         version: 2
