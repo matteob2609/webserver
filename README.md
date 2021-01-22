@@ -98,9 +98,11 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 - _systemctl restart apache2.service_
 
-:pushpin:`Checkpoint: immettere nella barra degli indirizzi del browser IP/nome_cartella_sito, se vengono visualizzati i file inseriti dall'utente registrato il sito funziona correttamente.`
+:pushpin:`Checkpoint: immettere nella barra degli indirizzi del browser nome_cartella_sito.dominio, se vengono visualizzati i file inseriti dall'utente registrato il sito funziona correttamente. Di seguito alcuni esempi:`
 
-      dominio/'nome_cartella_sito'
+      sitoa-105.virtual.marconi
+      sitob-105.virtual.marconi
+      ubuntu-srv105.virtual.marconi
 
 ---
 
