@@ -11,7 +11,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 - _nano /etc/hostname_
 
-:pushpin:`Checkpoint: immettere il comando reboot per riavviare il server web e visualizzare l'hostname aggiornato. `
+:pushpin:`Checkpoint: immettere il comando 'reboot' per riavviare il server web e visualizzare l'hostname aggiornato. `
 
       reboot
 
@@ -43,7 +43,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 - _netplan try_
 
-:pushpin:`Checkpoint: verificare se l'indirizzo è stato modificato correttamente tramite il comando ip addr e verificare la connessione con il comando ping.`
+:pushpin:`Checkpoint: verificare se l'indirizzo è stato modificato correttamente tramite il comando 'ip addr' e verificare la connessione con il comando 'ping'.`
 
       ip addr
       ping www.google.com
@@ -98,7 +98,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 - _systemctl restart apache2.service_
 
-:pushpin:`Checkpoint: immettere nella barra degli indirizzi del browser nome_cartella_sito.dominio, se vengono visualizzati i file inseriti dall'utente registrato il sito funziona correttamente. Di seguito alcuni esempi:`
+:pushpin:`Checkpoint: immettere nella barra degli indirizzi del browser 'nome_cartella_sito.dominio', se vengono visualizzati i file inseriti dall'utente registrato il sito funziona correttamente. Di seguito alcuni esempi:`
 
       sitoa-105.virtual.marconi
       sitob-105.virtual.marconi
@@ -175,9 +175,9 @@ Include anche un processo di comunicazione tra processi autenticata.
 
 - _apt update_
 
-- _apt istall samba_
+- _apt install samba_
 
-:pushpin:`Checkpoint: immettere il comando whereis samba e verificare l'output, che deve essere il seguente:`
+:pushpin:`Checkpoint: immettere il comando 'whereis samba' e verificare l'output, che deve essere il seguente:`
       
       samba: /usr/sbin/samba /usr/lib/samba /etc/samba /usr/share/samba /usr/share/man/man7/samba.7.gz /usr/share/man/man8/samba.8.gz
       
@@ -209,14 +209,14 @@ Include anche un processo di comunicazione tra processi autenticata.
 
 - _service smbd restart_
 
-- _ufw allow samba_
+- _ufw allow samba_, permette al firewall di lasciar passare il traffico in entrata e in uscita che riguarda il servizio SMB.
 
 - _smbpasswd -a 'nome_user'_
 
-:pushpin:`Checkpoint per Ubuntu: aprire il default file manager, fare click su Connect to Server e inserire smb://ip-address/sambashare.`
+:pushpin:`Checkpoint per Ubuntu: aprire il default file manager, fare click su Connect to Server e inserire 'smb://ip-address/sambashare'.`
 
-:pushpin:`Checkpoint per macOS: nel menu Finder, fare click su Go > Connect to Server e inserire smb://ip-address/sambashare.`
+:pushpin:`Checkpoint per macOS: nel menu Finder, fare click su Go > Connect to Server e inserire 'smb://ip-address/sambashare'.`
 
-:pushpin:`Checkpoint per Windows: aprire il default file manager e modificare l'indirizzo con \\ip-address\sambashare.`
+:pushpin:`Checkpoint per Windows: aprire il default file manager e modificare l'indirizzo con '\\ip-address\sambashare'.`
 
 :heavy_exclamation_mark: **N.B. per 'ip-address' si intende l'IP del webserver; 'sambashare' è il nome della cartella per la condivisione.** :heavy_exclamation_mark:
