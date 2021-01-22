@@ -188,6 +188,22 @@ Include anche un processo di comunicazione tra processi autenticata.
          path=/home/'nome_user'/sambashare
          read only=no
          browsable=yes
+      
+      #Condivisione di una cartella
+      [shared]
+      comment = Cartella condivisa        # Commento sulla condivisione
+      path = /cartella/da/condividere     # Percorso della condivisione
+      browseable = yes                    # Rende visibile la condivisione
+      public = yes                        # Rende la cartella accessibile
+      create mask = 0755                  # Permessi dei file
+      
+      #Condivisione della home
+      [homes]
+      comment = Home condivisa            # Commento sulla condivisione
+      browseable = yes                    # Rende visibile la condivisione
+      valid users = %S                    # Utente che vi può accedere
+      create mask = 0700                  # Permessi dei file
+      directory mask = 0700               # Permessi della home
 
 - _service smbd restart_
 
