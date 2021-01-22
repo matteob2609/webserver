@@ -217,4 +217,4 @@ Include anche un processo di comunicazione tra processi autenticata.
 
 :pushpin:`Checkpoint per Windows: aprire il default file manager e modificare l'indirizzo con \\ip-address\sambashare.`
 
-:heavy_exclamation_mark: **N.B. per 'ip-address' si intende l'IP del server Samba; 'sambashare' è il nome della cartella per la condivisione.** :heavy_exclamation_mark:
+:heavy_exclamation_mark: **N.B. per 'ip-address' si intende l'IP del webserver; 'sambashare' è il nome della cartella per la condivisione.** :heavy_exclamation_mark:
