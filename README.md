@@ -106,6 +106,8 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 ### :ghost: ATTIVAZIONE DEL SERVIZIO FTP
 
+**Introduzione:** FTP (File Transfer Protocol) è un protocollo utilizzato per il trasferimento di dati basato su un sistema client-server. Consente di caricare, scaricare e spostare file all'interno di un sistema di directory.
+
 - _apt install vsftpd_
 
 - _nano /etc/vsftpd.conf_
@@ -165,6 +167,9 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 ---
 
 ### :ghost: INSTALLAZIONE E CONFIGURAZIONE DEL SERVIZIO SAMBA (SMB)
+
+**Introduzione:** SMB (Server Message Block) è un protocollo utilizzato soprattutto dai Microsoft Windows, principalmente di condividere file, stampanti, porte seriali e comunicazioni di varia natura tra diversi nodi di una rete.
+Include anche un processo di comunicazione tra processi autenticata.
 
 - _apt update_
 
