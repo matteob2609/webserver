@@ -170,7 +170,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 ### :ghost: INSTALLAZIONE E CONFIGURAZIONE DEL SERVIZIO SAMBA (SMB)
 
-**Introduzione:** SMB (Server Message Block) è un protocollo utilizzato soprattutto dai Microsoft Windows, principalmente di condividere file, stampanti, porte seriali e comunicazioni di varia natura tra diversi nodi di una rete.
+**Introduzione:** SMB (Server Message Block) è un protocollo utilizzato soprattutto dai Microsoft Windows, principalmente per condividere file, stampanti, porte seriali e comunicazioni di varia natura tra diversi nodi di una rete.
 Include anche un processo di comunicazione tra processi autenticata.
 
 - _apt update_
