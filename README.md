@@ -220,3 +220,81 @@ Include anche un processo di comunicazione tra processi autenticata.
 :pushpin:`Checkpoint per Windows: aprire il default file manager e modificare l'indirizzo con '\\ip-address\sambashare'.`
 
 :heavy_exclamation_mark: **N.B. per 'ip-address' si intende l'IP del webserver; 'sambashare' è il nome della cartella per la condivisione.** :heavy_exclamation_mark:
+
+---
+
+### :ghost: INSTALLAZIONE TOMCAT 9
+
+**Introduzione:** Tomcat è un server web che fornisce una piattaforma software per l'esecuzione di applicazioni web sviluppate in linguaggio Java.
+
+**1. Installazione Java**
+
+- _apt update_
+
+- _apt install default-jdk_
+
+**2. Creazione di un nuovo utente che eseguirà il servizio Tomcat**
+
+- _useradd -r -m -U -d /opt/tomcat -s /bin/false tomcat_
+
+**3. Installazione Tomcat**
+
+- _wget http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.27/bin/apache-tomcat-9.0.27.tar.gz -P /tmp_
+
+- _tar xf /tmp/apache-tomcat-9*.tar.gz -C /opt/tomcat_, estraiamo l'archivio scaricato dentro la cartella /opt/tomcat.
+
+- _ln -s /opt/tomcat/apache-tomcat-9.0.27 /opt/tomcat/latest_
+
+- _chown -RH tomcat: /opt/tomcat/latest_
+
+- _sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'_
+
+**4. Creazione di un systemd Unit file**
+
+- _nano /etc/systemd/system/tomcat.service_, inserendo le righe di testo di sotto permetterà di eseguirlo come un servizio.
+
+      [Unit]
+      Description=Tomcat 9 servlet container
+      After=network.target
+
+      [Service]
+      Type=forking
+
+      User=tomcat
+      Group=tomcat
+
+      Environment="JAVA_HOME=/usr/lib/jvm/default-java"
+      Environment="JAVA_OPTS=-Djava.security.egd=file:///dev/urandom -Djava.awt.headless=true"
+
+      Environment="CATALINA_BASE=/opt/tomcat/latest"
+      Environment="CATALINA_HOME=/opt/tomcat/latest"
+      Environment="CATALINA_PID=/opt/tomcat/latest/temp/tomcat.pid"
+      Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
+
+      ExecStart=/opt/tomcat/latest/bin/startup.sh
+      ExecStop=/opt/tomcat/latest/bin/shutdown.sh
+
+      [Install]
+      WantedBy=multi-user.target
+      
+:heavy_exclamation_mark: **N.B. Modificare il percorso JAVA_HOME se la cartella d'installazione di Java è differente** :heavy_exclamation_mark:
+
+- _systemctl daemon-reload_
+
+- _systemctl start tomcat_, esecuzione del servizio Tomcat.
+
+:pushpin:`Checkpoint: verificare lo stato del servizio inserendo il comando 'systemctl status tomcat'. L'output dovrà essere il seguente:`
+
+      * tomcat.service - Tomcat 9 servlet container
+         Loaded: loaded (/etc/systemd/system/tomcat.service; disabled; vendor preset: enabled)
+         Active: active (running) since Wed 2018-09-05 15:45:28 PDT; 20s ago
+        Process: 1582 ExecStart=/opt/tomcat/latest/bin/startup.sh (code=exited, status=0/SUCCESS)
+       Main PID: 1604 (java)
+          Tasks: 47 (limit: 2319)
+         CGroup: /system.slice/tomcat.service
+         
+- _systemctl enable tomcat_, se non ci sono errori è possibile eseguire il servizio Tomcat all'esecuzione del server utilizzando questo comando.
+
+**5. Modificare il firewall lasciando passare il traffico Tomcat**
+
+- _ufw allow 8080/tcp_
