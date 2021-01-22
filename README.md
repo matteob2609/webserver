@@ -161,3 +161,39 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 - _systemctl start vsftpd_
 
 - _systemctl enable vsftpd_
+
+---
+
+### :ghost: INSTALLAZIONE E CONFIGURAZIONE DEL SERVIZIO SAMBA (SMB)
+
+- _apt update_
+
+- _apt istall samba_
+
+:pushpin:`Checkpoint: immettere il comando whereis samba e verificare l'output, che deve essere il seguente.`
+      
+      samba: /usr/sbin/samba /usr/lib/samba /etc/samba /usr/share/samba /usr/share/man/man7/samba.7.gz /usr/share/man/man8/samba.8.gz
+      
+- _mkdir /home/'nome_user'/sambashare/_
+
+- _nano /etc/samba/smb.conf_
+
+      [sambashare]
+         comment=Samba on Ubuntu
+         path=/home/'nome_user'/sambashare
+         read only=no
+         browsable=yes
+
+- _service smbd restart_
+
+- _ufw allow samba_
+
+- _smbpasswd -a 'nome_user'_
+
+:pushpin:`Checkpoint per Ubuntu: aprire il default file manager, fare click su Connect to Server e inserire smb://ip-address/sambashare.`
+
+:pushpin:`Checkpoint per macOS: nel menu Finder, fare click su Go > Connect to Server e inserire smb://ip-address/sambashare.`
+
+:pushpin:`Checkpoint per Windows: aprire il default file manager e modificare l'indirizzo con \\ip-address\sambashare.`
+
+:heavy_exclamation_mark: *N.B. per 'ip-address' si intende l'IP del server Samba; 'sambashare' è il nome della cartella per la condivisione.* :heavy_exclamation_mark:
