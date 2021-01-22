@@ -170,7 +170,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 - _apt istall samba_
 
-:pushpin:`Checkpoint: immettere il comando whereis samba e verificare l'output, che deve essere il seguente.`
+:pushpin:`Checkpoint: immettere il comando whereis samba e verificare l'output, che deve essere il seguente:`
       
       samba: /usr/sbin/samba /usr/lib/samba /etc/samba /usr/share/samba /usr/share/man/man7/samba.7.gz /usr/share/man/man8/samba.8.gz
       
@@ -196,4 +196,4 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 :pushpin:`Checkpoint per Windows: aprire il default file manager e modificare l'indirizzo con \\ip-address\sambashare.`
 
-:heavy_exclamation_mark: *N.B. per 'ip-address' si intende l'IP del server Samba; 'sambashare' è il nome della cartella per la condivisione.* :heavy_exclamation_mark:
+:heavy_exclamation_mark: **N.B. per 'ip-address' si intende l'IP del server Samba; 'sambashare' è il nome della cartella per la condivisione.** :heavy_exclamation_mark:
