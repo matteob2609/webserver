@@ -176,7 +176,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
       
 - _mkdir /home/'nome_user'/sambashare/_
 
-- _nano /etc/samba/smb.conf_
+- _nano /etc/samba/smb.conf_ e inserire in fondo al file queste righe di testo:
 
       [sambashare]
          comment=Samba on Ubuntu
