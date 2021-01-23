@@ -295,6 +295,6 @@ Include anche un processo di comunicazione tra processi autenticata.
          
 - _systemctl enable tomcat_, se non ci sono errori è possibile eseguire il servizio Tomcat all'esecuzione del server utilizzando questo comando.
 
-**5. Modificare il firewall lasciando passare il traffico Tomcat**
+**5. Modificare il firewall lasciando passare il traffico Tomcat sulla porta 8080**
 
 - _ufw allow 8080/tcp_
