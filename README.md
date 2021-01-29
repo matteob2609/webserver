@@ -310,3 +310,9 @@ Un esempio di output è questo:`
 **5. Modificare il firewall lasciando passare il traffico Tomcat sulla porta 8080**
 
 - _ufw allow 8080/tcp_
+
+**6. Accesso a Tomcat**
+
+Digitare all'interno della barra di ricerca del browser _http://server_domain_or_IP:8080_
+
+![tomcat_page](https://user-images.githubusercontent.com/61114792/106262435-4cfda200-6223-11eb-96a1-b3625513a39b.png)
