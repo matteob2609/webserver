@@ -64,6 +64,8 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 - _apt upgrade_
 
+[Torna su](https://github.com/matteob2609/webserver#webserver)
+
 ---
 
 ### :ghost: INSTALLAZIONE SSH & APACHE2
@@ -75,6 +77,8 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 :pushpin:`Checkpoint: verificare l'installazione del server Apache aprendo il browser e mettendo nella barra degli indirizzi l'IP del server web, se viene visualizzata la pagina di default di Apache l'installazione è andata a buon fine.`
 
       172.16.29.105/index.html
+      
+[Torna su](https://github.com/matteob2609/webserver#webserver)
 
 ---
 
@@ -178,6 +182,8 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 - _systemctl enable vsftpd_
 
+[Torna su](https://github.com/matteob2609/webserver#webserver)
+
 ---
 
 ### :ghost: INSTALLAZIONE E CONFIGURAZIONE DEL SERVIZIO SAMBA (SMB)
@@ -232,6 +238,8 @@ Include anche un processo di comunicazione tra processi autenticata.
 :pushpin:`Checkpoint per Windows: aprire il default file manager e modificare l'indirizzo con '\\ip-address\sambashare'.`
 
 :heavy_exclamation_mark: **N.B. per 'ip-address' si intende l'IP del webserver; 'sambashare' è il nome della cartella per la condivisione.** :heavy_exclamation_mark:
+
+[Torna su](https://github.com/matteob2609/webserver#webserver)
 
 ---
 
@@ -328,3 +336,5 @@ Un esempio di output è questo:`
 Digitare all'interno della barra di ricerca del browser _http://server_domain_or_IP:8080_
 
 ![tomcat_page](https://user-images.githubusercontent.com/61114792/106262435-4cfda200-6223-11eb-96a1-b3625513a39b.png)
+
+[Torna su](https://github.com/matteob2609/webserver#webserver)
