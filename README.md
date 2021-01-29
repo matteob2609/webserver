@@ -233,6 +233,14 @@ Include anche un processo di comunicazione tra processi autenticata.
 
 - _apt install default-jdk_
 
+:pushpin:`Checkpoint: Verificare la versione Java installata inserendo il comando java -version.
+Un esempio di output è questo:`
+
+      openjdk version "11.0.9.1" 2020-11-04
+      OpenJDK Runtime Environment (build 11.0.9.1+1-Ubuntu-0ubuntu1.20.04)
+      OpenJDK 64-Bit Server VM (build 11.0.9.1+1-Ubuntu-0ubuntu1.20.04, mixed mode, sharing)
+
+
 **2. Creazione di un nuovo utente che eseguirà il servizio Tomcat**
 
 - _useradd -r -m -U -d /opt/tomcat -s /bin/false tomcat_
