@@ -3,7 +3,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 :heavy_exclamation_mark: Usare **sudo** prima del comando se non si hanno i diritti necessari.
 
-Link per visualizzare direttamente la parte interessata:
+**Link per visualizzare direttamente la parte interessata:**
 
 [Configurazione IP & installazione pacchetti necessari](https://github.com/matteob2609/webserver#ghost-configurazione-ip--installazione-pacchetti-necessari)
 
