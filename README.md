@@ -245,17 +245,21 @@ Un esempio di output è questo:`
 
 - _useradd -r -m -U -d /opt/tomcat -s /bin/false tomcat_
 
-**3. Installazione Tomcat**
+**3. Installazione Tomcat e permessi**
 
-- _wget http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.27/bin/apache-tomcat-9.0.27.tar.gz -P /tmp_
+- _wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.41/bin/apache-tomcat-9.0.41.tar.gz -P /tmp_
 
 - _tar xf /tmp/apache-tomcat-9*.tar.gz -C /opt/tomcat_, estraiamo l'archivio scaricato dentro la cartella /opt/tomcat.
 
-- _ln -s /opt/tomcat/apache-tomcat-9.0.27 /opt/tomcat/latest_
+- _cd /opt/tomcat_
 
-- _chown -RH tomcat: /opt/tomcat/latest_
+- _sudo chgrp -R tomcat /opt/tomcat_
 
-- _sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'_
+- _sudo chmod -R g+r conf_
+
+- _sudo chmod g+x conf_
+
+- _sudo chown -R tomcat webapps/ work/ temp/ logs/_
 
 **4. Creazione di un systemd Unit file**
 
