@@ -259,7 +259,7 @@ Visto che il certificato non è verificato e confermato da nessuna autorità, ri
 
 Per procedere fare click su 'Advanced' e fare un click sul link per continuare comunuque la connessione al sito.
 
-:heavy_exclamation_mark: **N.B. potremmo notare che il lucchetto è segnato da una X, vuol dire che il certificato non è confermato, ma la connessione è comunque criptata.** :heavy_exclamation_mark:
+:heavy_exclamation_mark: **N.B. il lucchetto sarà segnato da una X, questo vuol dire che il certificato non è confermato, ma la connessione è comunque criptata.** :heavy_exclamation_mark:
       
 [Torna su](https://github.com/matteob2609/webserver#webserver)
 
