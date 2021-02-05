@@ -258,7 +258,8 @@ Visto che il certificato non è verificato e confermato da nessuna autorità, ri
 ![your-connection-is-not-private](https://user-images.githubusercontent.com/61114792/107025705-11765100-67aa-11eb-8a1b-a7b0a90ca0a2.png)
 
 Per procedere fare click su 'Advanced' e fare un click sul link per continuare comunuque la connessione al sito.
-Potremmo notare che il lucchetto è segnato da una X, vuol dire che il certificato non è confermato, ma la connessione è comunque criptata.
+
+:heavy_exclamation_mark: **N.B. potremmo notare che il lucchetto è segnato da una X, vuol dire che il certificato non è confermato, ma la connessione è comunque criptata.** :heavy_exclamation_mark:
       
 [Torna su](https://github.com/matteob2609/webserver#webserver)
 
