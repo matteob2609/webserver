@@ -233,7 +233,9 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
       
 **4. Applicare le modifiche effettuate su Apache**
 
-- _a2enmod sll_
+(Probabilmente sarà necessario inserire _systemctl restart apache2_ dopo ogni comando)
+
+- _a2enmod ssl_
 
 - _a2enmod headers_
 
