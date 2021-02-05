@@ -185,7 +185,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
       <IfModule mod_ssl.c>
               <VirtualHost _default_:443>
-                      ServerAdmin info@marconiverona.edu.it
+                      ServerAdmin webmaster@localhost
                       ServerName sitoa-105.virtual.marconi
 
                       DocumentRoot /var/www/html
