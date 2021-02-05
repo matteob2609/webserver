@@ -74,6 +74,8 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 **Introduzione Apache2:** è il server web libero piu' diffuso al mondo, in grado di operare su una grande vastità di S.O. Ha il vantaggio di offrire controlli per la sicurezza come quelle effettuate da un proxy.
 
+**1. Installazione**
+
 - _apt install openssh-server_
 
 - _apt install apache2_
@@ -82,11 +84,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
       172.16.29.105/index.html
       
-[Torna su](https://github.com/matteob2609/webserver#webserver)
-
----
-
-### :ghost: CREAZIONE DI UN UTENTE PER UN SITO SPECIFICO
+**2. Creazione di un utente per un sito specifico**
 
 - _useradd -s /bin/bash -d /var/www/'nome_cartella_sito' -m 'nome_user'_
 
@@ -94,9 +92,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 :pushpin:`Checkpoint: fare il login da remoto per verificare la corretta aggiunta dell'utente.`
 
----
-
-### :ghost: AGGIUNTA DEL SITO WEB
+**3. Aggiunta del sito web**
 
 - _cd /var/www/'nome_cartella_sito'_
 
@@ -110,9 +106,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 `Togliere il commento nella riga ServerName e inserire il dominio del sito; In DocumentRoot inserire il percorso della cartella del sito; In ErrorLog e CustomLog togliere il $, le parentesi graffe e inserire il percorso della cartella del sito /log.`
 
----
-
-### :ghost: ABILITAZIONE DEL SITO
+**4. Abilitazione del sito**
 
 - _a2ensite 'file_configurazione_sito'.conf_
 
@@ -123,6 +117,8 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
       sitoa-105.virtual.marconi
       sitob-105.virtual.marconi
       ubuntu-srv105.virtual.marconi
+
+[Torna su](https://github.com/matteob2609/webserver#webserver)
 
 ---
 
