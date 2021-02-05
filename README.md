@@ -122,6 +122,134 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 ---
 
+### :ghost: ATTIVAZIONE HTTPS SU APACHE2
+
+**Azione preliminare. Controllo della versione OpenSSL**
+
+- _openssl version -a_
+
+:pushpin:`Checkpoint: Controllare l'output, dovrà essere simile al seguente:`
+
+      OpenSSL 1.1.1f  31 Mar 2020
+      built on: Mon Apr 20 11:53:50 2020 UTC
+      platform: debian-amd64
+      options:  bn(64,64) rc4(16x,int) des(int) blowfish(ptr)
+      compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack ...
+      OPENSSLDIR: "/usr/lib/ssl"
+      ENGINESDIR: "/usr/lib/x86_64-linux-gnu/engines-1.1"
+      Seeding source: os-specific
+      
+**1. Creazione del certificato SSL**
+
+- _openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/'nome_chiave'.key -out /etc/ssl/certs/'nome_certificato'.crt_
+
+      Country Name (2 letter code) [AU]:IT
+      State or Province Name (full name) [Some-State]:Italy
+      Locality Name (eg, city) []:Verona
+      Organization Name (eg, company) [Internet Widgits Pty Ltd]:ITI G. Marconi
+      Organizational Unit Name (eg, section) []:Information Technology
+      Common Name (e.g. server FQDN or YOUR name) []:sitoa-105.virtual.marconi
+      Email Address []:info@marconiverona.edu.it
+      
+- _openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048_
+
+**2. Configurare Apache per utilizzare SSL**
+
+- _nano /etc/apache2/conf-available/ssl-params.conf_
+
+      # from https://cipherli.st/
+      # and https://raymii.org/s/tutorials/Strong_SSL_Security_On_Apache2.html
+
+      SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
+      SSLProtocol All -SSLv2 -SSLv3
+      SSLHonorCipherOrder On
+      # Disable preloading HSTS for now.  You can use the commented out header line that includes
+      # the "preload" directive if you understand the implications.
+      #Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains; preload"
+      Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains"
+      Header always set X-Frame-Options DENY
+      Header always set X-Content-Type-Options nosniff
+      # Requires Apache >= 2.4
+      SSLCompression off
+      SSLSessionTickets Off
+      SSLUseStapling on
+      SSLStaplingCache "shmcb:logs/stapling-cache(150000)"
+
+      SSLOpenSSLConfCmd DHParameters "/etc/ssl/certs/dhparam.pem"
+      
+- _cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf.bak_, prima di modificare il file di configurazione di SSL creiamo un backup del file stesso.
+
+- _nano /etc/apache2/sites-available/default-ssl.conf_
+
+      <IfModule mod_ssl.c>
+              <VirtualHost _default_:443>
+                      ServerAdmin info@marconiverona.edu.it
+                      ServerName sitoa-105.virtual.marconi
+
+                      DocumentRoot /var/www/html
+
+                      ErrorLog ${APACHE_LOG_DIR}/error.log
+                      CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+                      SSLEngine on
+
+                      SSLCertificateFile      /etc/ssl/certs/'nome_certificato'.crt
+                      SSLCertificateKeyFile /etc/ssl/private/'nome_chiave'.key
+
+                      <FilesMatch "\.(cgi|shtml|phtml|php)$">
+                                      SSLOptions +StdEnvVars
+                      </FilesMatch>
+                      <Directory /usr/lib/cgi-bin>
+                                      SSLOptions +StdEnvVars
+                      </Directory>
+
+                      BrowserMatch "MSIE [2-6]" \
+                                     nokeepalive ssl-unclean-shutdown \
+                                     downgrade-1.0 force-response-1.0
+
+              </VirtualHost>
+      </IfModule>
+      
+**3. Modificare le impostazioni del firewall per permette il traffico in entrata e uscita**
+
+- _ufw allow 'Apache Full'_
+
+- _ufw delete allow 'Apache'_
+
+- _ufw status_, visualizzare lo stato del firewall.
+
+:pushpin:`Checkpoint: lo status del firewall dovrà essere simile al seguente:`
+
+      Status: active
+
+      To                         Action      From
+      --                         ------      ----
+      OpenSSH                    ALLOW       Anywhere
+      Apache Full                ALLOW       Anywhere
+      OpenSSH (v6)               ALLOW       Anywhere (v6)
+      Apache Full (v6)           ALLOW       Anywhere (v6)
+      
+**4. Applicare le modifiche effettuate su Apache**
+
+- _a2enmod sll_
+
+- _a2enmod headers_
+
+- _a2ensite default-ssl_
+
+- _a2enconf ssl-params_
+
+:pushpin:`Checkpoint: immettere il comando 'apache2ctl configtest' per verificare che non ci siano errori di sintassi. Output:`
+
+      AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
+      Syntax OK
+      
+- _systemctl restart apache2_, solo se il checkpoint non ha dato errori.
+      
+[Torna su](https://github.com/matteob2609/webserver#webserver)
+
+---
+
 ### :ghost: ATTIVAZIONE DEL SERVIZIO FTP
 
 **Introduzione:** FTP (File Transfer Protocol) è un protocollo utilizzato per il trasferimento di dati basato su un sistema client-server. Consente di caricare, scaricare e spostare file all'interno di un sistema di directory.
