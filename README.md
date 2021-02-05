@@ -247,6 +247,16 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
       Syntax OK
       
 - _systemctl restart apache2_, solo se il checkpoint non ha dato errori.
+
+**5. Test**
+
+Digitare sul browser _https://sitoa-105.virtual.marconi_ (questo è il mio caso in particolare, il dominio o l'IP può essere differente in base alla configurazione effettuata).
+Visto che il certificato non è verificato e confermato da nessuna autorità, riceveremo questo avvertimento:
+
+![your-connection-is-not-private](https://user-images.githubusercontent.com/61114792/107025705-11765100-67aa-11eb-8a1b-a7b0a90ca0a2.png)
+
+Per procedere fare click su 'Advanced' e fare un click sul link per continuare comunuque la connessione al sito.
+Potremmo notare che il lucchetto è segnato da una X, vuol dire che il certificato non è confermato, ma la connessione è comunque criptata.
       
 [Torna su](https://github.com/matteob2609/webserver#webserver)
 
