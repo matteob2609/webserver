@@ -70,6 +70,10 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 ### :ghost: INSTALLAZIONE SSH & APACHE2
 
+**Introduzione SSH:** protocollo che stabilisce una connessione remota cifrata tramite un'interfaccia a riga di comando con un altro host della rete. Ha sostituito il protocollo insicuro Telnet.
+
+**Introduzione Apache2:** è il server web libero piu' diffuso al mondo, in grado di operare su una grande vastità di S.O. Ha il vantaggio di offrire controlli per la sicurezza come quelle effettuate da un proxy.
+
 - _apt install openssh-server_
 
 - _apt install apache2_
