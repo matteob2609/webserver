@@ -1,7 +1,7 @@
 # webserver
 Breve documentazione per inizializzare un server web Ubuntu (versione in questione: 20.04.1 LTS)
 
-:heavy_exclamation_mark: Usare **sudo** prima del comando se non si hanno i diritti necessari.
+:heavy_exclamation_mark: usare **sudo** prima del comando se non si hanno i diritti necessari.
 
 **Link per visualizzare direttamente la parte interessata:**
 
@@ -125,6 +125,8 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 ---
 
 ### :ghost: ATTIVAZIONE HTTPS SU APACHE2 (Self-Signed)
+
+:heavy_exclamation_mark: questo sarà un esempio applicato al sito chiamato **sitoa-105.virtual.marconi**, modificare i testi di seguiti per adattarli a qualsiasi altro sito.
 
 **Azione preliminare. Controllo della versione OpenSSL**
 
