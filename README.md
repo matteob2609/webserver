@@ -141,6 +141,8 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
       ENGINESDIR: "/usr/lib/x86_64-linux-gnu/engines-1.1"
       Seeding source: os-specific
       
+- _a2enmod ssl_, in caso SSL non fosse installato.
+      
 **1. Creazione del certificato SSL**
 
 - _openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/'nome_chiave'.key -out /etc/ssl/certs/'nome_certificato'.crt_
