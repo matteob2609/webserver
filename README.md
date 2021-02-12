@@ -9,7 +9,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 [Installazione SSH & Apache2](https://github.com/matteob2609/webserver#ghost-installazione-ssh--apache2)
 
-[Attivazione HTTPS su Apache2 (Self-Signed)](https://github.com/matteob2609/webserver#ghost-attivazione-https-su-apache2)
+[Attivazione HTTPS su Apache2 (Self-Signed)](https://github.com/matteob2609/webserver#ghost-attivazione-https-su-apache2-self-signed)
 
 [Attivazione del servizio FTP](https://github.com/matteob2609/webserver#ghost-attivazione-del-servizio-ftp)
 
