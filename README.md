@@ -233,7 +233,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
       OpenSSH (v6)               ALLOW       Anywhere (v6)
       Apache Full (v6)           ALLOW       Anywhere (v6)
       
-**4. Applicare le modifiche effettuate su Apache**
+**4. Controllare che le modifiche siano avvenute con successo**
 
 :pushpin:`Checkpoint: immettere il comando 'apache2ctl configtest' per verificare che non ci siano errori di sintassi. Output:`
 
