@@ -235,16 +235,6 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
       
 **4. Applicare le modifiche effettuate su Apache**
 
-(Probabilmente sarà necessario inserire _systemctl restart apache2_ dopo ogni comando)
-
-- _a2enmod ssl_
-
-- _a2enmod headers_
-
-- _a2ensite default-ssl_
-
-- _a2enconf ssl-params_
-
 :pushpin:`Checkpoint: immettere il comando 'apache2ctl configtest' per verificare che non ci siano errori di sintassi. Output:`
 
       AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
