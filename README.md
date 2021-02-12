@@ -126,7 +126,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 ### :ghost: ATTIVAZIONE HTTPS SU APACHE2 (Self-Signed)
 
-:heavy_exclamation_mark: Questo sarà un esempio applicato al sito chiamato **sitoa-105.virtual.marconi**, modificare i testi di seguiti per adattarli a qualsiasi altro sito.
+:heavy_exclamation_mark: Questo sarà un esempio applicato al sito chiamato **sitoa-105.virtual.marconi**, modificare i testi di seguito per adattarli a qualsiasi altro sito.
 
 **Azione preliminare. Controllo della versione OpenSSL**
 
