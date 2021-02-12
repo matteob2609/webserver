@@ -192,8 +192,8 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
                       DocumentRoot /var/www/html
 
-                      ErrorLog ${APACHE_LOG_DIR}/error.log
-                      CustomLog ${APACHE_LOG_DIR}/access.log combined
+                      ErrorLog /var/www/sitoa-105/log/error.log
+                      CustomLog /var/www/sitoa-105/log/access.log combined
 
                       SSLEngine on
 
@@ -214,7 +214,16 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
               </VirtualHost>
       </IfModule>
       
-**3. Modificare le impostazioni del firewall per permette il traffico in entrata e uscita**
+**3. Reindirizzamento delle richieste HTTP ad HTTPS**
+
+- _nano /etc/apache2/sites-available/sitoa-105.conf_, aggiungere queste righe alla fine del docuemento.
+
+      RewriteEngine on
+	RewriteCond %{SERVER_NAME} =sitoa-105.virtual.marconi [OR]
+	RewriteCond %{SERVER_NAME} =www.sitoa-105.virtual.marconi
+	RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+      
+**4. Modificare le impostazioni del firewall per permette il traffico in entrata e uscita**
 
 - _ufw allow 'Apache Full'_
 
@@ -233,7 +242,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
       OpenSSH (v6)               ALLOW       Anywhere (v6)
       Apache Full (v6)           ALLOW       Anywhere (v6)
       
-**4. Controllare che le modifiche siano avvenute con successo**
+**5. Controllare che le modifiche siano avvenute con successo**
 
 :pushpin:`Checkpoint: immettere il comando 'apache2ctl configtest' per verificare che non ci siano errori di sintassi. Output:`
 
@@ -242,10 +251,10 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
       
 - _systemctl restart apache2_, solo se il checkpoint non ha dato errori.
 
-**5. Test**
+**6. Test**
 
 Digitare sul browser _https://sitoa-105.virtual.marconi_ (questo è il mio caso in particolare, il dominio o l'IP può essere differente in base alla configurazione effettuata).
-Visto che il certificato non è verificato e confermato da nessuna autorità, riceveremo questo avvertimento:
+Visto che il certificato non è verificato e confermato da nessuna autorità, riceveremo questo avvertimento, ma solamente per la prima volta:
 
 ![your-connection-is-not-private](https://user-images.githubusercontent.com/61114792/107025705-11765100-67aa-11eb-8a1b-a7b0a90ca0a2.png)
 
