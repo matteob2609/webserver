@@ -143,7 +143,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
       ENGINESDIR: "/usr/lib/x86_64-linux-gnu/engines-1.1"
       Seeding source: os-specific
       
-- _a2enmod ssl_, in caso il moduelo SSL non fosse attivo.
+- _a2enmod ssl_, in caso il modulo SSL non fosse attivo.
       
 **1. Creazione del certificato SSL**
 
