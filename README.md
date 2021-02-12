@@ -147,13 +147,13 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 - _openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/'nome_chiave'.key -out /etc/ssl/certs/'nome_certificato'.crt_
 
-      Country Name (2 letter code) [AU]:IT
-      State or Province Name (full name) [Some-State]:Italy
-      Locality Name (eg, city) []:Verona
-      Organization Name (eg, company) [Internet Widgits Pty Ltd]:ITI G. Marconi
-      Organizational Unit Name (eg, section) []:Information Technology
+      Country Name (2 letter code) [AU]:
+      State or Province Name (full name) [Some-State]:
+      Locality Name (eg, city) []:
+      Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+      Organizational Unit Name (eg, section) []:
       Common Name (e.g. server FQDN or YOUR name) []:sitoa-105.virtual.marconi
-      Email Address []:info@marconiverona.edu.it
+      Email Address []:
       
 - _openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048_
 
