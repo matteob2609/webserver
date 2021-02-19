@@ -21,6 +21,12 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 ### :ghost: CONFIGURAZIONE IP & INSTALLAZIONE PACCHETTI NECESSARI
 
+- _apt update_
+
+- _apt upgrade_
+
+- _apt install net-tools_
+
 - _nano /etc/hosts_ 
 
 - _nano /etc/hostname_
@@ -61,10 +67,6 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
       ip addr
       ping www.google.com
-
-- _apt update_
-
-- _apt upgrade_
 
 [Torna su](https://github.com/matteob2609/webserver#webserver)
 
