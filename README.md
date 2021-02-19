@@ -225,7 +225,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
         <VirtualHost *:80>
         . . .
 
-        Redirect "/" "https://your_domain_or_IP/"
+        Redirect "/" "https://sitoa-105.virtual.marconi/"
 
         . . .
         </VirtualHost>
