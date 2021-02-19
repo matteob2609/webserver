@@ -266,11 +266,13 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 Digitare sul browser _https://sitoa-105.virtual.marconi_ (questo è il mio caso in particolare, il dominio o l'IP può essere differente in base alla configurazione effettuata).
 Visto che il certificato non è verificato e confermato da nessuna autorità, riceveremo questo avvertimento, ma solamente per la prima volta:
 
-![your-connection-is-not-private](https://user-images.githubusercontent.com/61114792/107025705-11765100-67aa-11eb-8a1b-a7b0a90ca0a2.png)
+![image](https://user-images.githubusercontent.com/61114792/108486435-5e742000-729e-11eb-9deb-7cddeeaf6983.png)
 
 Per procedere fare click su 'Advanced' e fare un click sul link per continuare comunque la connessione al sito.
 
 :heavy_exclamation_mark: **N.B. il lucchetto sarà segnato da una X, questo vuol dire che il certificato non è confermato, ma la connessione è comunque criptata.** :heavy_exclamation_mark:
+
+![image](https://user-images.githubusercontent.com/61114792/108486603-8794b080-729e-11eb-923f-54159c2ad7df.png)
       
 [Torna su](https://github.com/matteob2609/webserver#webserver)
 
