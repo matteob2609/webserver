@@ -268,7 +268,7 @@ Visto che il certificato non è verificato e confermato da nessuna autorità, ri
 
 ![image](https://user-images.githubusercontent.com/61114792/108486435-5e742000-729e-11eb-9deb-7cddeeaf6983.png)
 
-Per procedere fare click su 'Advanced' e fare un click sul link per continuare comunque la connessione al sito.
+Per procedere fare click su 'Avanzate' e fare un click sul link per continuare comunque la connessione al sito.
 
 :heavy_exclamation_mark: **N.B. il lucchetto sarà segnato da una X, questo vuol dire che il certificato non è confermato, ma la connessione è comunque criptata.** :heavy_exclamation_mark:
 
