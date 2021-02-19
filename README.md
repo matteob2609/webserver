@@ -220,12 +220,15 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
       
 **3. Reindirizzamento delle richieste HTTP ad HTTPS**
 
-- _nano /etc/apache2/sites-available/sitoa-105.conf_, aggiungere queste righe alla fine del docuemento.
+- _nano /etc/apache2/sites-available/000-default.conf_ e aggiungere la riga _Redirect ..._.
 
-        RewriteEngine on
-        RewriteCond %{SERVER_NAME} =sitoa-105.virtual.marconi [OR]
-        RewriteCond %{SERVER_NAME} =www.sitoa-105.virtual.marconi
-        RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+        <VirtualHost *:80>
+        . . .
+
+        Redirect "/" "https://your_domain_or_IP/"
+
+        . . .
+        </VirtualHost>
       
 **4. Modificare le impostazioni del firewall per permette il traffico in entrata e uscita**
 
