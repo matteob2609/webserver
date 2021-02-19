@@ -196,8 +196,8 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
                       DocumentRoot /var/www/html
 
-                      ErrorLog /var/www/sitoa-105/log/error.log
-                      CustomLog /var/www/sitoa-105/log/access.log combined
+                      ErrorLog ${APACHE_LOG_DIR}/error.log
+                      CustomLog ${APACHE_LOG_DIR}/access.log combined
 
                       SSLEngine on
 
