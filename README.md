@@ -12,6 +12,8 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 [Attivazione HTTPS su Apache2 (Self-Signed)](https://github.com/matteob2609/webserver#ghost-attivazione-https-su-apache2-self-signed)
 
+[Attivazione HTTPS su Apache2](https://github.com/matteob2609/webserver#ghost-attivazione-https-su-apache2)
+
 [Attivazione del servizio FTP](https://github.com/matteob2609/webserver#ghost-attivazione-del-servizio-ftp)
 
 [Installazione e configurazione del servizio Samba (SMB)](https://github.com/matteob2609/webserver#ghost-installazione-e-configurazione-del-servizio-samba-smb)
@@ -348,7 +350,7 @@ Per procedere fare click su 'Avanzate' e fare un click sul link per continuare c
                0b:9b:23:b5:1f:8d:c9:cd:59:bf:b7:e5:11:ab:f0:e8:b9:f6:
                [...14 lines removed]
 
-:heavy_exclamation_mark: Ora sarà necessario inviare il CSR creato al CA. Una volta inviato riceveremo un certificato rilasciato sicuro con estensione .cer.
+:heavy_exclamation_mark: Ora sarà necessario inviare il CSR creato alla CA (Certification Authority). Una volta inviato riceveremo un certificato rilasciato sicuro con estensione _.cer_.
 
 **4. Configurare Apache per utilizzare il nuovo certificato**
 
