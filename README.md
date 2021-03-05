@@ -279,6 +279,112 @@ Per procedere fare click su 'Avanzate' e fare un click sul link per continuare c
 
 ---
 
+### :ghost: ATTIVAZIONE HTTPS SU APACHE2
+
+:heavy_exclamation_mark: Questo sarà un esempio applicato al sito chiamato **sitoa-105.virtual.marconi**, modificare i testi di seguito per adattarli a qualsiasi altro sito.
+
+**Azione preliminare. Controllo della versione OpenSSL**
+
+- _openssl version -a_
+
+:pushpin:`Checkpoint: Controllare l'output, dovrà essere simile al seguente:`
+
+      OpenSSL 1.1.1f  31 Mar 2020
+      built on: Mon Apr 20 11:53:50 2020 UTC
+      platform: debian-amd64
+      options:  bn(64,64) rc4(16x,int) des(int) blowfish(ptr)
+      compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack ...
+      OPENSSLDIR: "/usr/lib/ssl"
+      ENGINESDIR: "/usr/lib/x86_64-linux-gnu/engines-1.1"
+      Seeding source: os-specific
+      
+- _a2enmod ssl_, in caso il modulo SSL non fosse attivo.
+
+**Azione preliminare 2. Creazione di una nuova cartella in /etc/apache2**
+
+- _cd /etc/apache2_, spostamento all'interno di /etc/apache2.
+
+- _mkdir ssl_, creazione della cartella chiamata _ssl_, conterrà al suo interno la chiave privata, pubblica e il certificato.
+
+- _cd ssl_, spostamento all'interno della cartella appena creata.
+
+**1. Creazione della chiave privata**
+
+- _openssl genrsa -out 'nome_chiave_privata'.key 2048_
+
+**2. Estrazione della chiave pubblica dalla chiave privata**
+
+- _openssl rsa -in 'nome_chiave_privata'.key -pubout -out 'nome_chiave_pubblica'.key_
+
+**3. Creazione del CSR (Certificate Signing Request)**
+
+- _openssl req -new -key 'nome_chiave_privata'.key -out 'nome_csr'.csr_
+
+      Country Name (2 letter code) [AU]:
+      State or Province Name (full name) [Some-State]:
+      Locality Name (eg, city) []:
+      Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+      Organizational Unit Name (eg, section) []:
+      Common Name (e.g. server FQDN or YOUR name) []:sitoa-105.virtual.marconi
+      Email Address []:
+      
+:pushpin:`Checkpoint: immettere il comando 'openssl req -text -in 'nome_csr'.csr -noout -verify' per verificare che le informazioni inserite all'interno del CSR siano corrette. Output:`
+
+      verify OK
+      Certificate Request:
+          Data:
+              Version: 0 (0x0)
+              Subject: C=US, ST=Utah, L=Lehi, O=Your Company, Inc., OU=IT, CN=yourdomain.com
+              Subject Public Key Info:
+                  Public Key Algorithm: rsaEncryption
+                      Public-Key: (2048 bit)
+                      Modulus:
+                          00:bb:31:71:40:81:2c:8e:fb:89:25:7c:0e:cb:76:
+                          [...17 lines removed]
+                      Exponent: 65537 (0x10001)
+              Attributes:
+                  a0:00
+          Signature Algorithm: sha256WithRSAEncryption
+               0b:9b:23:b5:1f:8d:c9:cd:59:bf:b7:e5:11:ab:f0:e8:b9:f6:
+               [...14 lines removed]
+
+:heavy_exclamation_mark: Ora sarà necessario inviare il CSR creato al CA. Una volta inviato riceveremo un certificato rilasciato sicuro con estensione .cer.
+
+**4. Configurare Apache per utilizzare il nuovo certificato**
+
+- _nano /etc/apache2/sites-available/default-ssl.conf_
+
+      <IfModule mod_ssl.c>
+              <VirtualHost _default_:443>
+                      ServerAdmin webmaster@localhost
+                      ServerName sitoa-105.virtual.marconi
+
+                      DocumentRoot /var/www/html
+
+                      ErrorLog ${APACHE_LOG_DIR}/error.log
+                      CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+                      SSLEngine on
+
+                      SSLCertificateFile      /etc/apache2/ssl/'nome_cer'.cer
+                      SSLCertificateKeyFile /etc/ssl/private/'nome_chiave_privata'.key
+
+                      <FilesMatch "\.(cgi|shtml|phtml|php)$">
+                                      SSLOptions +StdEnvVars
+                      </FilesMatch>
+                      <Directory /usr/lib/cgi-bin>
+                                      SSLOptions +StdEnvVars
+                      </Directory>
+
+                      BrowserMatch "MSIE [2-6]" \
+                                     nokeepalive ssl-unclean-shutdown \
+                                     downgrade-1.0 force-response-1.0
+
+              </VirtualHost>
+      </IfModule>
+
+---
+
 ### :ghost: ATTIVAZIONE DEL SERVIZIO FTP
 
 **Introduzione:** FTP (File Transfer Protocol) è un protocollo utilizzato per il trasferimento di dati basato su un sistema client-server. Consente di caricare, scaricare e spostare file all'interno di un sistema di directory.
