@@ -369,7 +369,7 @@ Per procedere fare click su 'Avanzate' e fare un click sul link per continuare c
                       SSLEngine on
 
                       SSLCertificateFile      /etc/apache2/ssl/'nome_cer'.cer
-                      SSLCertificateKeyFile /etc/ssl/private/'nome_chiave_privata'.key
+                      SSLCertificateKeyFile /etc/apache2/ssl/'nome_chiave_privata'.key
 
                       <FilesMatch "\.(cgi|shtml|phtml|php)$">
                                       SSLOptions +StdEnvVars
