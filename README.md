@@ -43,6 +43,7 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 `Versione senza DHCP, indirizzi statici`
 
       network:
+        version: 2
         renderer: networkd
         ethernets:
           enp0s3:
@@ -50,7 +51,6 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
             gateway4: 172.16.1.7
             nameservers:
                 addresses: [172.16.1.10, 1.1.1.1]
-         version: 2
 
 `Versione con DHCP, indirizzi dinamici`
 
