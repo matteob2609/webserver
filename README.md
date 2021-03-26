@@ -6,6 +6,20 @@ Breve documentazione per inizializzare un server web Ubuntu (versione in questio
 
 **Link per visualizzare direttamente la parte interessata:**
 
+[Configurazione IP & installazione pacchetti necessari](https://github.com/matteob2609/webserver#ghost-configurazione-ip--installazione-pacchetti-necessari)
+
+[Installazione SSH & Apache2](https://github.com/matteob2609/webserver#ghost-installazione-ssh--apache2)
+
+[Attivazione HTTPS su Apache2 (Self-Signed)](https://github.com/matteob2609/webserver#ghost-attivazione-https-su-apache2-self-signed)
+
+[Attivazione HTTPS su Apache2](https://github.com/matteob2609/webserver#ghost-attivazione-https-su-apache2)
+
+[Attivazione del servizio FTP](https://github.com/matteob2609/webserver#ghost-attivazione-del-servizio-ftp)
+
+[Installazione e configurazione del servizio Samba (SMB)](https://github.com/matteob2609/webserver#ghost-installazione-e-configurazione-del-servizio-samba-smb)
+
+[Installazione Tomcat 9](https://github.com/matteob2609/webserver#ghost-installazione-tomcat-9)
+
 ---
 
 ### :ghost: CONFIGURAZIONE IP & INSTALLAZIONE PACCHETTI NECESSARI
